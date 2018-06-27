@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import connection from '../firebaseRequests/connection';
 
+import listingRequests from '../firebaseRequests/listings';
+
 import Listings from '../components/Listings/Listings.js';
 
 import Building from '../components/Building/Building.js';
@@ -9,9 +11,19 @@ import ListingForm from '../components/ListingForm/ListingForm.js';
 import './App.css';
 
 class App extends Component {
+  state = {
+    listings: [],
+  }
+
   componentDidMount () {
-    const fb = connection();
-    console.error(fb);
+    connection();
+    listingRequests.getRequest()
+      .then((listings) => {
+        this.setState({listings: listings});
+      })
+      .catch((err) => {
+        console.error('error',err);
+      });
   };
 
   render () {
