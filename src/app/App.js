@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 import Listings from '../components/Listings/Listings.js';
 
-import Buildings from '../components/Building/Building.js';
+import Building from '../components/Building/Building.js';
+import ListingForm from '../components/ListingForm/ListingForm.js';
 import './App.css';
 
 class App extends Component {
@@ -10,7 +11,8 @@ class App extends Component {
     return (
       <div className="App">
         <Listings />
-        <Buildings />
+        <Building />
+        <ListingForm />
       </div>
     );
   }

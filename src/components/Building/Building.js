@@ -2,7 +2,7 @@ import React from 'react';
 
 import './Building.css';
 
-class Buildings extends React.Component {
+class Building extends React.Component {
   render () {
     return (
       <div className="Building">
@@ -12,4 +12,4 @@ class Buildings extends React.Component {
   }
 }
 
-export default Buildings;
+export default Building;
