@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import connection from '../firebaseRequests/connection';
+
 import Listings from '../components/Listings/Listings.js';
 
 import Building from '../components/Building/Building.js';
@@ -7,6 +9,11 @@ import ListingForm from '../components/ListingForm/ListingForm.js';
 import './App.css';
 
 class App extends Component {
+  componentDidMount () {
+    const fb = connection();
+    console.error(fb);
+  };
+
   render () {
     return (
       <div className="App">
