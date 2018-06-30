@@ -8,13 +8,14 @@ import ListingItem from '../ListingItem/ListingItem';
 
 class Listings extends React.Component {
   static propTypes = {
-    listings: PropTypes.arrayOf(listingShape)
+    listings: PropTypes.arrayOf(listingShape),
+    onListingSelection: PropTypes.func,
   };
 
   render () {
     // const listings = this.props.listings for the bottom. props to getting it  state passes it down save from
     // Typing  const listings = this.props.listings In this props go find listings
-    const { listings } = this.props;
+    const { listings, onListingSelection } = this.props;
     const listingsItemComponents = listings.map((listing, index) => {
       //   return (
       //     // <li key={item.id} >{item.price}</li>
@@ -25,6 +26,7 @@ class Listings extends React.Component {
           listing={listing}
           index={index}
           key={listing.id}
+          onSelect={onListingSelection}
         />
       );
     });

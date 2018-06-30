@@ -7,10 +7,17 @@ import './ListingItem.css';
 
 class ListingItem extends React.Component {
   static propTypes = {
-    listings: listingShape,
+    listing: listingShape,
     index: PropTypes.number,
+    onSelect: PropTypes.func,
   };
 
+  listingClick = (e) => {
+    e.stopPropagation();
+    const { listing, onSelect } = this.props;
+    // pass the ID to App JS  app is a parent listing item is a child. pass the function in app js and pass it down here
+    onSelect(listing.id);
+  }
   render () {
     // const listings = this.props.listings for the bottom. props to getting it  state passes it down save from
     // Typing  const listings = this.props.listings In this props go find listings
