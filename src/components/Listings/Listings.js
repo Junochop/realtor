@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {listingShape} from '../../propz/listingProp';
+import { listingShape } from '../../propz/listingProp';
 import './Listings.css';
+
+import ListingItem from '../ListingItem/ListingItem';
 
 class Listings extends React.Component {
   static propTypes = {
@@ -12,10 +14,17 @@ class Listings extends React.Component {
   render () {
     // const listings = this.props.listings for the bottom. props to getting it  state passes it down save from
     // Typing  const listings = this.props.listings In this props go find listings
-    const {listings} = this.props;
-    const listingsItemComponents = listings.map((item) => {
+    const { listings } = this.props;
+    const listingsItemComponents = listings.map((listing) => {
+      //   return (
+      //     // <li key={item.id} >{item.price}</li>
+      //   );
+      // });
       return (
-        <li key={item.id} >{item.price}</li>
+        <ListingItem
+          listing={listing}
+          key={listing.id}
+        />
       );
     });
     return (
