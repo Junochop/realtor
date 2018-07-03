@@ -5,7 +5,7 @@ const formatPrice = (dollars) => {
       style: 'currency',
       currency: 'USD',
     }
-  )
+  );
 };
 
 export {formatPrice};
