@@ -4,6 +4,7 @@ import {listingOptionalShape} from '../../propz/listingProp';
 import {formatPrice} from '../../helpers';
 
 import './Building.css';
+import BuildingTile from '../BuildingTile/BuildingTile';
 
 class Building extends React.Component {
   static propTypes = {listing: listingOptionalShape };
@@ -31,6 +32,28 @@ class Building extends React.Component {
             <h5>{listing.squareFootage} ft<sup>2</sup></h5>
             <p>{listing.description}</p>
           </div>
+        </div>
+        <div className="row">
+          <BuildingTile
+            imageSrc = 'cal'
+            altText='calendar'
+            pTagText={`Built: ${listing.yearBuilt}`}
+          />
+          <BuildingTile
+            imageSrc='hill'
+            altText='hill'
+            pTagText={`Built: ${listing.lotInAcres} acres`}
+          />
+          <BuildingTile
+            imageSrc='flame'
+            altText='flame'
+            pTagText={listing.heating}
+          />
+          <BuildingTile
+            imageSrc='snow'
+            altText='snowflake'
+            pTagText={listing.cooling}
+          />
         </div>
       </div>
     );
